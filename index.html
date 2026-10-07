@@ -7,7 +7,11 @@
   <meta name="theme-color" content="#f3f6f2" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0d1513" media="(prefers-color-scheme: dark)" />
   <meta name="description" content="PooryaAI is an AI assistant in development for working nurses, designed to reduce preventable errors, support earlier disease recognition, keep medication care on time, and improve patient communication." />
-  <link rel="icon" href="data:," />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="PooryaAI — Safer nursing, clearer care" />
+  <meta property="og:description" content="PooryaAI is an AI assistant in development for working nurses, designed to reduce preventable errors, support earlier disease recognition, keep medication care on time, and improve patient communication." />
+  <meta property="og:url" content="https://pooryaai.me/" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23087f71'/%3E%3Cpath d='M32 16v32M16 32h32' stroke='white' stroke-width='9' stroke-linecap='round'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@500;600&display=swap" rel="stylesheet" />
@@ -159,7 +163,6 @@
     .final-note { position: relative; z-index: 1; padding: 28px; border: 1px solid rgba(255,255,255,.35); background: rgba(4, 64, 55, .25); }
     .final-note span { display: block; margin-bottom: 36px; font-family: var(--mono); font-size: 10px; color: rgba(255,255,255,.72); }
     .final-note strong { display: block; font-family: var(--serif); font-size: 25px; line-height: 1.28; font-weight: 500; }
-    footer { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-top: 31px; color: var(--muted); font-size: 13px; }
     @media (max-width: 900px) {
       .site-nav a:not(.nav-cta) { display: none; }
       .hero { grid-template-columns: 1fr; gap: 78px; min-height: 0; padding-top: 62px; }
@@ -205,7 +208,6 @@
       .final { padding-top: 80px; }
       .final-card { padding: 37px 23px; min-height: 0; gap: 40px; }
       .final-note { padding: 21px; }
-      footer { align-items: flex-start; flex-direction: column; }
     }
     /* Visual nursing layer */
     body { background-image: radial-gradient(circle at 12px 12px, color-mix(in srgb, var(--teal) 9%, transparent) 1px, transparent 1.4px); background-size: 30px 30px; }
@@ -362,6 +364,46 @@
       .faq-list summary { font-size: 17px; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+    /* Refined details: anchor offset, selection, entrance motion */
+    ::selection { background: var(--teal); color: #fff; }
+    section[id] { scroll-margin-top: 92px; }
+    @media (prefers-reduced-motion: no-preference) {
+      @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+      @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+      @keyframes pulse-dot { 0%, 100% { box-shadow: 0 0 0 5px color-mix(in srgb, var(--teal) 14%, transparent); } 50% { box-shadow: 0 0 0 9px color-mix(in srgb, var(--teal) 5%, transparent); } }
+      .hero-copy > * { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; }
+      .hero-copy > *:nth-child(2) { animation-delay: .08s; }
+      .hero-copy > *:nth-child(3) { animation-delay: .16s; }
+      .hero-copy > *:nth-child(4) { animation-delay: .24s; }
+      .hero-copy > *:nth-child(5) { animation-delay: .32s; }
+      .care-stage { animation: rise .8s cubic-bezier(.2,.7,.2,1) .15s both; }
+      .status::before { animation: pulse-dot 2.6s ease-in-out infinite; }
+      .float-card.med { animation: bob 7s ease-in-out 1s infinite; }
+      .float-card.id { animation: bob 8s ease-in-out .4s infinite; }
+      .float-card.family { animation: bob 7.5s ease-in-out 1.6s infinite; }
+    }
+    /* Final contact line */
+    .final-email { margin: 20px 0 0 !important; font-size: 15px !important; color: rgba(255,255,255,.85) !important; }
+    .final-email a { color: #fff; font-weight: 700; text-underline-offset: 4px; }
+    /* Proper footer */
+    .site-footer { border-top: 1px solid var(--line); background: var(--surface-2); }
+    .footer-inner { width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 60px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 1.35fr 1fr 1fr; gap: 48px; padding-bottom: 42px; border-bottom: 1px solid var(--line); }
+    .footer-brand strong { font-family: var(--serif); font-size: 26px; letter-spacing: -.02em; }
+    .footer-brand p { max-width: 340px; margin: 12px 0 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
+    .footer-label { display: block; margin-bottom: 14px; color: var(--teal-dark); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; }
+    .footer-contact a { color: var(--ink); font-size: 19px; font-weight: 600; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--teal) 55%, transparent); }
+    .footer-contact a:hover { color: var(--teal-dark); }
+    .footer-nav { display: grid; gap: 10px; align-content: start; }
+    .footer-nav a { color: var(--muted); font-size: 15px; text-decoration: none; }
+    .footer-nav a:hover { color: var(--ink); }
+    .footer-base { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 26px; color: var(--muted); font-size: 13px; }
+    @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 620px) {
+      .footer-inner { width: min(100% - 28px, 1180px); }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-base { flex-direction: column; align-items: flex-start; }
+    }
   </style>
 </head>
 <body>
@@ -371,7 +413,7 @@
     <a href="#shift">Shift view</a>
     <a href="#validation">Safety</a>
     <a href="#faq">FAQ</a>
-    <a class="nav-cta" href="#pilot">Pilot plan</a>
+    <a class="nav-cta" href="#pilot">Contact</a>
   </nav>
   <main>
     <section class="hero" aria-labelledby="hero-title">
@@ -522,10 +564,34 @@
 
     <section class="final" id="pilot" aria-labelledby="pilot-title">
       <div class="final-card">
-        <div><h2 id="pilot-title">The safer shift starts with the next question.</h2><p>PooryaAI is in development. The next step is a focused pilot shaped with working nurses and clinical teams.</p><a class="button" href="#shift">See the shift view</a></div>
+        <div><h2 id="pilot-title">The safer shift starts with the next question.</h2><p>PooryaAI is in development. The next step is a focused pilot shaped with working nurses and clinical teams.</p><div class="actions"><a class="button" href="mailto:contact@pooryaai.me?subject=PooryaAI%20pilot%20inquiry">Get in touch</a></div><p class="final-email">Prefer email? <a href="mailto:contact@pooryaai.me">contact@pooryaai.me</a></p></div>
         <div class="final-note"><span>PRODUCT PRINCIPLE</span><strong>AI should make nursing attention sharper—not nursing judgment smaller.</strong></div>
       </div>
-      <footer><span>© 2026 PooryaAI</span><span>In development · Not for patient care</span></footer>
+      <footer class="site-footer">
+        <div class="footer-inner">
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <strong>PooryaAI</strong>
+              <p>An AI assistant in development for working nurses — fewer errors, clearer priorities, better communication.</p>
+            </div>
+            <div class="footer-contact">
+              <span class="footer-label">CONTACT</span>
+              <a href="mailto:contact@pooryaai.me">contact@pooryaai.me</a>
+            </div>
+            <nav class="footer-nav" aria-label="Footer navigation">
+              <span class="footer-label">EXPLORE</span>
+              <a href="#focus">Focus</a>
+              <a href="#shift">Shift view</a>
+              <a href="#validation">Safety</a>
+              <a href="#faq">FAQ</a>
+            </nav>
+          </div>
+          <div class="footer-base">
+            <span>© 2026 PooryaAI. All rights reserved.</span>
+            <span>In development · Not for patient care</span>
+          </div>
+        </div>
+      </footer>
     </section>
   </main>
 </body>
