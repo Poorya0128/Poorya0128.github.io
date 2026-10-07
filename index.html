@@ -6,14 +6,14 @@
   <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#f3f6f2" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0d1513" media="(prefers-color-scheme: dark)" />
-  <meta name="description" content="PooryaAI is an AI assistant in development for working nurses, designed to reduce preventable errors, support earlier disease recognition, keep medication care on time, and improve patient communication." />
+  <meta name="description" content="PooryaAI is an AI assistant being built for working nurses, designed to reduce preventable errors, support earlier disease recognition, keep medication care on time, and improve patient communication." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="PooryaAI — Safer nursing, clearer care" />
-  <meta property="og:description" content="PooryaAI is an AI assistant in development for working nurses, designed to reduce preventable errors, support earlier disease recognition, keep medication care on time, and improve patient communication." />
+  <meta property="og:description" content="PooryaAI is an AI assistant being built for working nurses, designed to reduce preventable errors, support earlier disease recognition, keep medication care on time, and improve patient communication." />
   <meta property="og:url" content="https://pooryaai.me/" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="PooryaAI — Safer nursing, clearer care" />
-  <meta name="twitter:description" content="PooryaAI is an AI assistant in development for working nurses, designed to reduce preventable errors, support earlier disease recognition, keep medication care on time, and improve patient communication." />
+  <meta name="twitter:description" content="PooryaAI is an AI assistant being built for working nurses, designed to reduce preventable errors, support earlier disease recognition, keep medication care on time, and improve patient communication." />
   <link rel="canonical" href="https://pooryaai.me/" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23087f71'/%3E%3Cpath d='M32 16v32M16 32h32' stroke='white' stroke-width='9' stroke-linecap='round'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -71,6 +71,7 @@
     .site-nav { position: sticky; top: 0; z-index: 10; width: min(1180px, calc(100% - 40px)); margin: 0 auto; min-height: 72px; display: flex; align-items: center; justify-content: flex-end; gap: 27px; border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--page) 93%, transparent); backdrop-filter: blur(12px); }
     .site-nav a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 600; }
     .site-nav a:hover { color: var(--ink); }
+    .brand { margin-right: auto; color: var(--ink) !important; font-family: var(--serif); font-size: 21px !important; letter-spacing: -.02em; }
     .status { margin-right: auto; display: inline-flex; align-items: center; gap: 8px; color: var(--teal-dark); font-size: 12px; font-family: var(--mono); }
     .status::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 5px color-mix(in srgb, var(--teal) 14%, transparent); }
     .nav-cta { padding: 9px 14px; border: 1px solid var(--ink); color: var(--ink) !important; border-radius: 4px; }
@@ -445,9 +446,9 @@
     }
   </style>
 </head>
-<body>
+<body id="top">
   <nav class="site-nav" aria-label="Primary navigation">
-    <span class="status">In development</span>
+    <a class="brand" href="#top">PooryaAI</a>
     <a href="#focus">Focus</a>
     <a href="#shift">Shift view</a>
     <a href="#safety">Safety</a>
@@ -471,8 +472,8 @@
           <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Built for validation before use</li>
         </ul>
       </div>
-      <div class="care-stage" aria-label="Illustrated concept of a calm hospital bedside supported by PooryaAI safety cues">
-        <div class="stage-label">MORNING ROUND · CONCEPT</div>
+      <div class="care-stage" aria-label="Illustration of a calm hospital bedside supported by PooryaAI safety cues">
+        <div class="stage-label">MORNING ROUND</div>
         <svg class="ward-scene" viewBox="0 0 620 520" role="img" aria-labelledby="ward-title ward-desc">
           <title id="ward-title">A calm, organized hospital bedside</title>
           <desc id="ward-desc">A stylized nursing environment with an adjustable bed, vital-sign monitor, IV stand, medication cart, clinical tablet, and safety cues.</desc>
@@ -624,22 +625,22 @@
       <div class="faq-list">
         <details open><summary>Who is PooryaAI for?</summary><p>Working nurses and their clinical teams — not students or exam preparation.</p></details>
         <details><summary>Does it diagnose or give medication?</summary><p>No. It flags patterns and timing cues for a nurse to review. See Safety and clear boundaries above.</p></details>
-        <details><summary>How is patient information handled?</summary><p>Do not send us patient information. This is a concept preview — see Privacy below.</p></details>
-        <details><summary>Can I use it in patient care today?</summary><p>No. It is in development. Pilots with nurses come first.</p></details>
+        <details><summary>How is patient information handled?</summary><p>Do not send us patient information. See Privacy below.</p></details>
+        <details><summary>Can I use it in patient care today?</summary><p>Not yet. We are preparing pilot programs with nurses and clinical teams.</p></details>
       </div>
     </section>
 
     <section class="section slim" id="privacy" aria-labelledby="privacy-title">
       <div class="privacy">
         <h2 id="privacy-title">Privacy</h2>
-        <p>PooryaAI is a concept preview. Do not send patient information to us — in email or anywhere else.</p>
+        <p>PooryaAI is not in clinical use. Do not send patient information to us — in email or anywhere else.</p>
         <p>Emails to <a href="mailto:contact@pooryaai.me">contact@pooryaai.me</a> are used only to reply to you.</p>
       </div>
     </section>
 
     <section class="final" id="pilot" aria-labelledby="pilot-title">
       <div class="final-card">
-        <div><h2 id="pilot-title">The safer shift starts with the next question.</h2><p>PooryaAI is in development. The next step is a focused pilot shaped with working nurses and clinical teams.</p><div class="actions"><a class="button" href="#contact">Talk to us about a pilot</a></div></div>
+        <div><h2 id="pilot-title">The safer shift starts with the next question.</h2><p>The next step is a focused pilot shaped with working nurses and clinical teams.</p><div class="actions"><a class="button" href="#contact">Talk to us about a pilot</a></div></div>
         <div class="final-note"><span>PRODUCT PRINCIPLE</span><strong>AI should make nursing attention sharper—not nursing judgment smaller.</strong></div>
       </div>
       <section class="contact-wrap" id="contact" aria-labelledby="contact-title">
@@ -660,7 +661,7 @@
           <div class="footer-grid">
             <div class="footer-brand">
               <strong>PooryaAI</strong>
-              <p>An AI assistant in development for working nurses — fewer errors, clearer priorities, better communication.</p>
+              <p>An AI assistant for working nurses — fewer errors, clearer priorities, better communication.</p>
             </div>
             <div class="footer-contact">
               <span class="footer-label">CONTACT</span>
@@ -678,7 +679,7 @@
           </div>
           <div class="footer-base">
             <span>© 2026 PooryaAI. All rights reserved.</span>
-            <span>In development · Not for patient care</span>
+            <span>Not for patient care</span>
           </div>
         </div>
       </footer>
