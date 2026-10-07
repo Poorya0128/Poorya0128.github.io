@@ -15,6 +15,7 @@
   <meta name="twitter:title" content="PooryaAI — Safer nursing, clearer care" />
   <meta name="twitter:description" content="PooryaAI is an AI assistant being built for working nurses, designed to reduce preventable errors, support earlier disease recognition, keep medication care on time, and improve patient communication." />
   <link rel="canonical" href="https://pooryaai.me/" />
+  <script>document.documentElement.className += ' js';</script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23087f71'/%3E%3Cpath d='M32 16v32M16 32h32' stroke='white' stroke-width='9' stroke-linecap='round'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -355,7 +356,21 @@
       .faq-list summary { font-size: 17px; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
-    /* Refined details: anchor offset, selection, entrance motion */
+    /* Motion: scroll reveal, live cues, nav feedback */
+    @media (prefers-reduced-motion: no-preference) {
+      .js .reveal { opacity: 0; transform: translateY(26px); transition: opacity .65s ease, transform .65s cubic-bezier(.2,.7,.2,1); }
+      .js .reveal.in { opacity: 1; transform: translateY(0); }
+      .js .reveal.in.lift:hover { transform: translateY(-5px); transition-duration: .25s; }
+      .lift { transition: box-shadow .25s ease; }
+      .lift:hover { box-shadow: 0 22px 55px rgba(16,46,38,.14); }
+      @keyframes soft-ping { 0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--coral) 38%, transparent); } 50% { box-shadow: 0 0 0 7px transparent; } }
+      .shift-ui-tasks li.now em { animation: soft-ping 2.4s ease-in-out infinite; }
+      .site-nav { transition: box-shadow .3s ease; }
+      .site-nav.scrolled { box-shadow: 0 12px 32px rgba(16,46,38,.10); }
+      .site-nav a:not(.nav-cta):not(.brand) { position: relative; }
+      .site-nav a:not(.nav-cta):not(.brand)::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -5px; height: 2px; border-radius: 2px; background: var(--teal); transition: right .28s ease; }
+      .site-nav a:not(.nav-cta):not(.brand):hover::after { right: 0; }
+    }
     ::selection { background: var(--teal); color: #fff; }
     section[id] { scroll-margin-top: 92px; }
     @media (prefers-reduced-motion: no-preference) {
@@ -498,7 +513,7 @@
     </section>
 
     <aside class="example" aria-label="Illustrative shift example">
-      <div class="example-inner">
+      <div class="example-inner reveal">
         <span class="example-label">ILLUSTRATIVE EXAMPLE — NOT REAL PATIENT DATA</span>
         <div class="example-lines">
           <p><time>07:00</time>A nurse opens her shift: six assigned patients, ordered by what needs attention first.</p>
@@ -509,7 +524,7 @@
     </aside>
 
     <aside class="proof-band" aria-label="Product focus">
-      <div class="proof-inner">
+      <div class="proof-inner reveal">
         <strong>Less searching. More attention for care.</strong>
         <div class="proof-item">Assigned patient list</div>
         <div class="proof-item">Prioritized tasks</div>
@@ -518,16 +533,16 @@
     </aside>
 
     <section class="section" id="focus" aria-labelledby="focus-title">
-      <div class="section-head">
+      <div class="section-head reveal">
         <div class="eyebrow">Four areas of focus</div>
         <h2 id="focus-title">Designed around moments where clarity matters.</h2>
         <p>Four practical kinds of support, organized around a nurse’s real workload.</p>
       </div>
       <div class="capability-grid">
-        <article class="capability featured"><span class="num">01 / RECOGNIZE</span><div class="cap-visual" aria-hidden="true"><svg viewBox="0 0 420 112"><path class="v-muted" d="M12 77h59l14-28 18 49 22-75 20 54h72"/><circle class="v-coral" cx="274" cy="55" r="34"/><path class="v-line" d="m259 56 11 11 21-27"/><path class="v-muted" d="M330 34h74M330 55h55M330 76h65"/></svg></div><h3>Recognize possible disease patterns sooner.</h3><p>Connect symptoms, observations, history, and recent changes to surface patterns worth reviewing and escalating.</p></article>
-        <article class="capability"><span class="num">02 / PREVENT</span><div class="cap-visual" aria-hidden="true"><svg viewBox="0 0 420 112"><rect class="v-fill" x="18" y="16" width="188" height="76" rx="12"/><circle class="v-coral" cx="62" cy="54" r="20"/><path class="v-muted" d="M94 39h84M94 56h64M94 73h74"/><path class="v-line" d="M246 37h154M246 59h122M246 81h95"/><circle cx="389" cy="81" r="12" fill="var(--mint)" stroke="var(--teal)" stroke-width="2"/><path class="v-line" d="m383 81 4 4 8-9"/></svg></div><h3>Catch preventable nursing errors.</h3><p>Flag conflicting information, missed checks, and unfinished follow-up for review.</p></article>
-        <article class="capability"><span class="num">03 / TIME</span><div class="cap-visual" aria-hidden="true"><svg viewBox="0 0 420 112"><circle class="v-fill" cx="64" cy="56" r="39"/><path class="v-line" d="M64 31v27l19 11"/><rect class="v-amber" x="133" y="26" width="119" height="60" rx="30"/><path class="v-muted" d="M193 26v60M168 44v24m50-24v24"/><path class="v-line" d="M296 31h106M296 55h78M296 79h92"/></svg></div><h3>Keep medication care visible.</h3><p>Surface upcoming and overdue windows, checks, and follow-up while the care team keeps control.</p></article>
-        <article class="capability"><span class="num">04 / CONNECT</span><div class="cap-visual" aria-hidden="true"><svg viewBox="0 0 420 112"><path class="v-fill" d="M18 18h168v58H74l-32 25V76H18Z"/><path class="v-muted" d="M47 40h108M47 56h79"/><path class="v-coral" d="M235 31h166v55H281l-29 20V86h-17Z"/><path class="v-line" d="M264 52h109M264 68h73"/></svg></div><h3>Find a better way to say it.</h3><p>Prepare clear, respectful explanations and questions for patients, families, and handoffs.</p></article>
+        <article class="capability reveal lift featured"><span class="num">01 / RECOGNIZE</span><div class="cap-visual" aria-hidden="true"><svg viewBox="0 0 420 112"><path class="v-muted" d="M12 77h59l14-28 18 49 22-75 20 54h72"/><circle class="v-coral" cx="274" cy="55" r="34"/><path class="v-line" d="m259 56 11 11 21-27"/><path class="v-muted" d="M330 34h74M330 55h55M330 76h65"/></svg></div><h3>Recognize possible disease patterns sooner.</h3><p>Connect symptoms, observations, history, and recent changes to surface patterns worth reviewing and escalating.</p></article>
+        <article class="capability reveal lift"><span class="num">02 / PREVENT</span><div class="cap-visual" aria-hidden="true"><svg viewBox="0 0 420 112"><rect class="v-fill" x="18" y="16" width="188" height="76" rx="12"/><circle class="v-coral" cx="62" cy="54" r="20"/><path class="v-muted" d="M94 39h84M94 56h64M94 73h74"/><path class="v-line" d="M246 37h154M246 59h122M246 81h95"/><circle cx="389" cy="81" r="12" fill="var(--mint)" stroke="var(--teal)" stroke-width="2"/><path class="v-line" d="m383 81 4 4 8-9"/></svg></div><h3>Catch preventable nursing errors.</h3><p>Flag conflicting information, missed checks, and unfinished follow-up for review.</p></article>
+        <article class="capability reveal lift"><span class="num">03 / TIME</span><div class="cap-visual" aria-hidden="true"><svg viewBox="0 0 420 112"><circle class="v-fill" cx="64" cy="56" r="39"/><path class="v-line" d="M64 31v27l19 11"/><rect class="v-amber" x="133" y="26" width="119" height="60" rx="30"/><path class="v-muted" d="M193 26v60M168 44v24m50-24v24"/><path class="v-line" d="M296 31h106M296 55h78M296 79h92"/></svg></div><h3>Keep medication care visible.</h3><p>Surface upcoming and overdue windows, checks, and follow-up while the care team keeps control.</p></article>
+        <article class="capability reveal lift"><span class="num">04 / CONNECT</span><div class="cap-visual" aria-hidden="true"><svg viewBox="0 0 420 112"><path class="v-fill" d="M18 18h168v58H74l-32 25V76H18Z"/><path class="v-muted" d="M47 40h108M47 56h79"/><path class="v-coral" d="M235 31h166v55H281l-29 20V86h-17Z"/><path class="v-line" d="M264 52h109M264 68h73"/></svg></div><h3>Find a better way to say it.</h3><p>Prepare clear, respectful explanations and questions for patients, families, and handoffs.</p></article>
       </div>
     </section>
 
@@ -537,7 +552,7 @@
         <h2 id="shift-title">Patients and priorities, without the hunt.</h2>
         <p>PooryaAI condenses the shift into a short, reviewable view. The nurse verifies the context and decides what happens next.</p>
       </div>
-      <div class="steps">
+      <div class="steps reveal">
         <article class="step"><span class="step-num">01</span><div><h3>Assigned patient list for each nurse</h3><p>See every assigned patient with current status, recent changes, medication windows, and watch items.</p></div></article>
         <article class="step"><span class="step-num">02</span><div><h3>Prioritized task queue</h3><p>Order care tasks by urgency, timing, clinical risk, and unfinished follow-up—then let the nurse adjust the order.</p></div></article>
         <article class="step"><span class="step-num">03</span><div><h3>Focused safety and disease cues</h3><p>Surface a concise prompt when a possible disease pattern, conflict, or missed check needs review.</p></div></article>
@@ -550,9 +565,9 @@
         <div class="eyebrow">Safety and clear boundaries</div>
         <h2 id="safety-title">Support for nurses. Never a replacement.</h2>
         <div class="validation-grid">
-          <article class="validation-item"><span>01 / NURSE DECIDES</span><h3>Support, not replacement</h3><p>PooryaAI does not diagnose, prescribe, or administer medication. Assessment, decisions, and escalation stay with the nurse and the clinical team.</p></article>
-          <article class="validation-item"><span>02 / SHOW THE REASONING</span><h3>Prompts you can check</h3><p>Important prompts show the cues behind them, the uncertainty, and what still needs verification.</p></article>
-          <article class="validation-item"><span>03 / VALIDATE FIRST</span><h3>No patient care yet</h3><p>Clinical use would come only after co-design with nurses, privacy review, and careful evaluation of missed or unsafe cues.</p></article>
+          <article class="validation-item reveal"><span>01 / NURSE DECIDES</span><h3>Support, not replacement</h3><p>PooryaAI does not diagnose, prescribe, or administer medication. Assessment, decisions, and escalation stay with the nurse and the clinical team.</p></article>
+          <article class="validation-item reveal"><span>02 / SHOW THE REASONING</span><h3>Prompts you can check</h3><p>Important prompts show the cues behind them, the uncertainty, and what still needs verification.</p></article>
+          <article class="validation-item reveal"><span>03 / VALIDATE FIRST</span><h3>No patient care yet</h3><p>Clinical use would come only after co-design with nurses, privacy review, and careful evaluation of missed or unsafe cues.</p></article>
         </div>
       </div>
     </section>
@@ -563,7 +578,7 @@
           <div class="eyebrow">Who is behind PooryaAI</div>
           <h2 id="about-title">Built by a nurse, for nurses.</h2>
         </div>
-        <div class="about-card">
+        <div class="about-card reveal lift">
           <!-- TODO: add founder photo and social links when provided -->
           <strong>Poorya Baghery</strong>
           <span>FOUNDER</span>
@@ -580,15 +595,15 @@
         <p>The essentials about scope, safety, and current availability.</p>
       </div>
       <div class="faq-list">
-        <details open><summary>Who is PooryaAI for?</summary><p>Working nurses and their clinical teams — not students or exam preparation.</p></details>
-        <details><summary>Does it diagnose or give medication?</summary><p>No. It flags patterns and timing cues for a nurse to review. See Safety and clear boundaries above.</p></details>
-        <details><summary>How is patient information handled?</summary><p>Do not send us patient information. See Privacy below.</p></details>
-        <details><summary>Can I use it in patient care today?</summary><p>Not yet. We are preparing pilot programs with nurses and clinical teams.</p></details>
+        <details class="reveal" open><summary>Who is PooryaAI for?</summary><p>Working nurses and their clinical teams — not students or exam preparation.</p></details>
+        <details class="reveal"><summary>Does it diagnose or give medication?</summary><p>No. It flags patterns and timing cues for a nurse to review. See Safety and clear boundaries above.</p></details>
+        <details class="reveal"><summary>How is patient information handled?</summary><p>Do not send us patient information. See Privacy below.</p></details>
+        <details class="reveal"><summary>Can I use it in patient care today?</summary><p>Not yet. We are preparing pilot programs with nurses and clinical teams.</p></details>
       </div>
     </section>
 
     <section class="section slim" id="privacy" aria-labelledby="privacy-title">
-      <div class="privacy">
+      <div class="privacy reveal">
         <h2 id="privacy-title">Privacy</h2>
         <p>PooryaAI is not in clinical use. Do not send patient information to us — in email or anywhere else.</p>
         <p>Emails to <a href="mailto:contact@pooryaai.me">contact@pooryaai.me</a> are used only to reply to you.</p>
@@ -596,12 +611,12 @@
     </section>
 
     <section class="final" id="pilot" aria-labelledby="pilot-title">
-      <div class="final-card">
+      <div class="final-card reveal">
         <div><h2 id="pilot-title">The safer shift starts with the next question.</h2><p>The next step is a focused pilot shaped with working nurses and clinical teams.</p><div class="actions"><a class="button" href="#contact">Talk to us about a pilot</a></div></div>
         <div class="final-note"><span>PRODUCT PRINCIPLE</span><strong>AI should make nursing attention sharper—not nursing judgment smaller.</strong></div>
       </div>
       <section class="contact-wrap" id="contact" aria-labelledby="contact-title">
-        <div class="contact-card">
+        <div class="contact-card reveal">
           <div>
             <div class="eyebrow">Contact</div>
             <h2 id="contact-title">Talk to us about a pilot.</h2>
@@ -614,7 +629,7 @@
         </div>
       </section>
       <footer class="site-footer">
-        <div class="footer-inner">
+        <div class="footer-inner reveal">
           <div class="footer-grid">
             <div class="footer-brand">
               <strong>PooryaAI</strong>
@@ -642,5 +657,35 @@
       </footer>
     </section>
   </main>
+  <script>
+  (function () {
+    // Scroll-reveal with stagger
+    var els = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+    var groups = {};
+    els.forEach(function (el) {
+      var p = el.parentElement;
+      var key = p ? Array.prototype.indexOf.call(document.querySelectorAll('*'), p) : -1;
+      (groups[key] = groups[key] || []).push(el);
+    });
+    Object.keys(groups).forEach(function (k) {
+      groups[k].forEach(function (el, i) { el.style.transitionDelay = Math.min(i, 5) * 80 + 'ms'; });
+    });
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+      els.forEach(function (el) { io.observe(el); });
+    }
+    // Nav shadow on scroll
+    var nav = document.querySelector('.site-nav');
+    var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 10); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+  </script>
 </body>
 </html>
