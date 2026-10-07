@@ -69,7 +69,8 @@
     button { color: inherit; }
     a { color: inherit; }
     :focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
-    .site-nav { position: sticky; top: 0; z-index: 10; width: min(1180px, calc(100% - 40px)); margin: 0 auto; min-height: 72px; display: flex; align-items: center; justify-content: flex-end; gap: 27px; border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--page) 93%, transparent); backdrop-filter: blur(12px); }
+    .site-nav { position: sticky; top: 0; z-index: 10; width: 100%; border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--page) 93%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+    .nav-inner { width: min(1180px, calc(100% - 40px)); margin: 0 auto; min-height: 72px; display: flex; align-items: center; justify-content: flex-end; gap: 27px; }
     .site-nav a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 600; }
     .site-nav a:hover { color: var(--ink); }
     .brand { margin-right: auto; color: var(--ink) !important; font-family: var(--serif); font-size: 21px !important; letter-spacing: -.02em; }
@@ -170,7 +171,7 @@
     .final-note span { display: block; margin-bottom: 36px; font-family: var(--mono); font-size: 10px; color: rgba(255,255,255,.72); }
     .final-note strong { display: block; font-family: var(--serif); font-size: 25px; line-height: 1.28; font-weight: 500; }
     @media (max-width: 900px) {
-      .site-nav a:not(.nav-cta) { display: none; }
+      .site-nav a:not(.nav-cta):not(.brand) { display: none; }
       .hero { grid-template-columns: 1fr; gap: 78px; min-height: 0; padding-top: 62px; }
       .workspace { width: min(620px, 94%); margin: 0 auto; }
       .proof-inner { grid-template-columns: 1fr 1fr; }
@@ -182,8 +183,8 @@
       .final-card { grid-template-columns: 1fr; }
     }
     @media (max-width: 620px) {
-      .site-nav, .hero, .proof-inner, .section, .validation-inner, .boundary-inner, .final { width: min(100% - 28px, 1180px); }
-      .site-nav { min-height: 64px; }
+      .hero, .proof-inner, .section, .validation-inner, .boundary-inner, .final { width: min(100% - 28px, 1180px); }
+      .nav-inner { width: min(100% - 28px, 1180px); min-height: 64px; }
       .status { font-size: 10px; }
       .nav-cta { padding: 8px 10px; font-size: 12px !important; }
       .hero { padding: 49px 0 70px; gap: 64px; }
@@ -474,6 +475,7 @@
 <body id="top">
 <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
   <nav class="site-nav" aria-label="Primary navigation">
+   <div class="nav-inner">
     <a class="brand" href="#top">PooryaAI</a>
     <a href="#focus">Focus</a>
     <a href="#shift">Shift view</a>
@@ -481,6 +483,7 @@
     <a href="#about">About</a>
     <a href="#faq">FAQ</a>
     <a class="nav-cta" href="#contact">Contact</a>
+   </div>
   </nav>
   <main>
     <section class="hero" aria-labelledby="hero-title">
