@@ -248,9 +248,9 @@
     .stage-caption strong { font-family: var(--serif); font-size: 17px; line-height: 1.25; }
     .proof-item { position: relative; min-height: 40px; padding-left: 46px; }
     .proof-item::before { position: absolute; left: 0; width: 31px; height: 31px; display: grid; place-items: center; border-radius: 9px; background: color-mix(in srgb, var(--mint-strong) 22%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--mint-strong) 35%, transparent); }
-    .proof-item:nth-child(2)::before { content: "Dx"; font-family: var(--mono); font-size: 9px; }
-    .proof-item:nth-child(3)::before { content: "09"; font-family: var(--mono); font-size: 9px; }
-    .proof-item:nth-child(4)::before { content: "↔"; font-family: var(--sans); font-size: 15px; }
+    .proof-item:nth-child(2)::before { content: "Pt"; font-family: var(--mono); font-size: 9px; }
+    .proof-item:nth-child(3)::before { content: "01"; font-family: var(--mono); font-size: 9px; }
+    .proof-item:nth-child(4)::before { content: "!"; font-family: var(--sans); font-size: 15px; }
     .capability-grid { gap: 16px; border-top: 0; }
     .capability, .capability:nth-child(even), .capability.featured { position: relative; overflow: hidden; min-height: 360px; padding: 28px; border: 1px solid var(--line); background: var(--surface); }
     .capability:nth-child(1) { border-radius: 28px 8px 8px 8px; }
@@ -368,7 +368,7 @@
   <nav class="site-nav" aria-label="Primary navigation">
     <span class="status">In development</span>
     <a href="#focus">Focus</a>
-    <a href="#shift">Shift moments</a>
+    <a href="#shift">Shift view</a>
     <a href="#validation">Safety</a>
     <a href="#faq">FAQ</a>
     <a class="nav-cta" href="#pilot">Pilot plan</a>
@@ -378,10 +378,10 @@
       <div class="hero-copy">
         <div class="eyebrow">AI assistant for working nurses</div>
         <h1 id="hero-title">A clearer shift. Safer care.</h1>
-        <p>PooryaAI is being designed to make everyday nursing work easier—helping nurses recognize possible disease patterns sooner, prevent avoidable errors, keep medication care on time, and communicate clearly with patients and families.</p>
+        <p>PooryaAI brings each nurse’s patients, priorities, safety cues, and communication support into one clear shift view.</p>
         <div class="actions">
           <a class="button" href="#focus">Explore the concept</a>
-          <a class="text-link" href="#workflow">See how it would work</a>
+          <a class="text-link" href="#shift">See the shift view</a>
         </div>
         <ul class="trust-line" aria-label="Product principles">
           <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Nurse remains in control</li>
@@ -459,99 +459,49 @@
 
     <aside class="proof-band" aria-label="Product focus">
       <div class="proof-inner">
-        <strong>Less preventable friction. More attention for care.</strong>
-        <div class="proof-item">Disease recognition</div>
-        <div class="proof-item">Medication timing</div>
-        <div class="proof-item">Human communication</div>
+        <strong>Less searching. More attention for care.</strong>
+        <div class="proof-item">Assigned patient list</div>
+        <div class="proof-item">Prioritized tasks</div>
+        <div class="proof-item">Safety cues</div>
       </div>
     </aside>
-
-    <section class="section" aria-labelledby="problem-title">
-      <div class="eyebrow">The problem we are choosing</div>
-      <div class="problem-grid">
-        <h2 class="problem-quote" id="problem-title">A demanding shift should not force nurses to hold every signal, task, and conversation in their heads.</h2>
-        <div class="problem-copy"><p>Changes in a patient’s condition compete with interruptions, documentation, medication windows, handoffs, and emotionally complex conversations.</p><p>PooryaAI is a practical assistant concept for reducing that cognitive load and bringing the next useful question into view—without taking judgment away from the nurse.</p></div>
-      </div>
-    </section>
 
     <section class="section" id="focus" aria-labelledby="focus-title">
       <div class="section-head">
         <div class="eyebrow">Four areas of focus</div>
         <h2 id="focus-title">Designed around moments where clarity matters.</h2>
-        <p>The product direction connects disease-pattern recognition, error prevention, task awareness, and communication support in one workflow for real nursing shifts.</p>
+        <p>Four practical kinds of support, organized around a nurse’s real workload.</p>
       </div>
       <div class="capability-grid">
-        <article class="capability featured"><span class="num">01 / RECOGNIZE</span><div class="cap-visual" aria-hidden="true"><svg viewBox="0 0 420 112"><path class="v-muted" d="M12 77h59l14-28 18 49 22-75 20 54h72"/><circle class="v-coral" cx="274" cy="55" r="34"/><path class="v-line" d="m259 56 11 11 21-27"/><path class="v-muted" d="M330 34h74M330 55h55M330 76h65"/></svg></div><h3>Recognize possible disease patterns sooner.</h3><p>Connect symptoms, observations, history, and recent changes to surface conditions worth considering, along with clear cues for reassessment and escalation—not an autonomous final diagnosis.</p></article>
-        <article class="capability"><span class="num">02 / PREVENT</span><div class="cap-visual" aria-hidden="true"><svg viewBox="0 0 420 112"><rect class="v-fill" x="18" y="16" width="188" height="76" rx="12"/><circle class="v-coral" cx="62" cy="54" r="20"/><path class="v-muted" d="M94 39h84M94 56h64M94 73h74"/><path class="v-line" d="M246 37h154M246 59h122M246 81h95"/><circle cx="389" cy="81" r="12" fill="var(--mint)" stroke="var(--teal)" stroke-width="2"/><path class="v-line" d="m383 81 4 4 8-9"/></svg></div><h3>Catch preventable nursing errors.</h3><p>Flag conflicting information, missed checks, and unfinished follow-up so the nurse can review the issue before it reaches the patient.</p></article>
-        <article class="capability"><span class="num">03 / TIME</span><div class="cap-visual" aria-hidden="true"><svg viewBox="0 0 420 112"><circle class="v-fill" cx="64" cy="56" r="39"/><path class="v-line" d="M64 31v27l19 11"/><rect class="v-amber" x="133" y="26" width="119" height="60" rx="30"/><path class="v-muted" d="M193 26v60M168 44v24m50-24v24"/><path class="v-line" d="M296 31h106M296 55h78M296 79h92"/></svg></div><h3>Keep medication care visible.</h3><p>Surface upcoming and overdue windows, relevant verification steps, and follow-up cues while leaving administration decisions with the care team.</p></article>
-        <article class="capability"><span class="num">04 / CONNECT</span><div class="cap-visual" aria-hidden="true"><svg viewBox="0 0 420 112"><path class="v-fill" d="M18 18h168v58H74l-32 25V76H18Z"/><path class="v-muted" d="M47 40h108M47 56h79"/><path class="v-coral" d="M235 31h166v55H281l-29 20V86h-17Z"/><path class="v-line" d="M264 52h109M264 68h73"/></svg></div><h3>Find a better way to say it.</h3><p>Help prepare clear, respectful explanations and questions for patients and families, adapted to the situation without impersonating the nurse.</p></article>
+        <article class="capability featured"><span class="num">01 / RECOGNIZE</span><div class="cap-visual" aria-hidden="true"><svg viewBox="0 0 420 112"><path class="v-muted" d="M12 77h59l14-28 18 49 22-75 20 54h72"/><circle class="v-coral" cx="274" cy="55" r="34"/><path class="v-line" d="m259 56 11 11 21-27"/><path class="v-muted" d="M330 34h74M330 55h55M330 76h65"/></svg></div><h3>Recognize possible disease patterns sooner.</h3><p>Connect symptoms, observations, history, and recent changes to surface patterns worth reviewing and escalating.</p></article>
+        <article class="capability"><span class="num">02 / PREVENT</span><div class="cap-visual" aria-hidden="true"><svg viewBox="0 0 420 112"><rect class="v-fill" x="18" y="16" width="188" height="76" rx="12"/><circle class="v-coral" cx="62" cy="54" r="20"/><path class="v-muted" d="M94 39h84M94 56h64M94 73h74"/><path class="v-line" d="M246 37h154M246 59h122M246 81h95"/><circle cx="389" cy="81" r="12" fill="var(--mint)" stroke="var(--teal)" stroke-width="2"/><path class="v-line" d="m383 81 4 4 8-9"/></svg></div><h3>Catch preventable nursing errors.</h3><p>Flag conflicting information, missed checks, and unfinished follow-up for review.</p></article>
+        <article class="capability"><span class="num">03 / TIME</span><div class="cap-visual" aria-hidden="true"><svg viewBox="0 0 420 112"><circle class="v-fill" cx="64" cy="56" r="39"/><path class="v-line" d="M64 31v27l19 11"/><rect class="v-amber" x="133" y="26" width="119" height="60" rx="30"/><path class="v-muted" d="M193 26v60M168 44v24m50-24v24"/><path class="v-line" d="M296 31h106M296 55h78M296 79h92"/></svg></div><h3>Keep medication care visible.</h3><p>Surface upcoming and overdue windows, checks, and follow-up while the care team keeps control.</p></article>
+        <article class="capability"><span class="num">04 / CONNECT</span><div class="cap-visual" aria-hidden="true"><svg viewBox="0 0 420 112"><path class="v-fill" d="M18 18h168v58H74l-32 25V76H18Z"/><path class="v-muted" d="M47 40h108M47 56h79"/><path class="v-coral" d="M235 31h166v55H281l-29 20V86h-17Z"/><path class="v-line" d="M264 52h109M264 68h73"/></svg></div><h3>Find a better way to say it.</h3><p>Prepare clear, respectful explanations and questions for patients, families, and handoffs.</p></article>
       </div>
     </section>
 
-    <section class="section shift-map" id="shift" aria-labelledby="shift-title">
-      <div class="shift-intro">
-        <div class="eyebrow">Where it fits</div>
-        <h2 id="shift-title">Useful across the rhythm of a real shift.</h2>
-        <p>PooryaAI is envisioned as a quiet layer of support at the moments when context is scattered, time is short, or a clear explanation matters.</p>
-      </div>
-      <div class="moment-list">
-        <article class="moment"><time>START</time><div><h3>Shift orientation</h3><p>Turn the handoff, active orders, recent observations, and scheduled care into a concise, reviewable picture of what needs attention first.</p></div></article>
-        <article class="moment"><time>ROUNDS</time><div><h3>Change in condition</h3><p>Connect new symptoms and trends with the patient context, then surface possible disease patterns, missing observations, and escalation cues for the nurse to assess.</p></div></article>
-        <article class="moment"><time>MEDS</time><div><h3>Medication preparation</h3><p>Bring the due window, verification steps, relevant cautions, and required follow-up together before administration—without making the administration decision.</p></div></article>
-        <article class="moment"><time>CONVERSATION</time><div><h3>Patient and family communication</h3><p>Draft a plain-language explanation, questions to confirm understanding, or a more thoughtful way to approach a difficult conversation.</p></div></article>
-        <article class="moment"><time>HANDOFF</time><div><h3>Transfer and end-of-shift handoff</h3><p>Organize material changes, unfinished tasks, medication follow-up, and watch items into a structured handoff the nurse can check and refine.</p></div></article>
-      </div>
-    </section>
-
-    <section class="section workflow" id="workflow" aria-labelledby="workflow-title">
+    <section class="section workflow" id="shift" aria-labelledby="shift-title">
       <div class="workflow-copy">
-        <div class="eyebrow">A simple care loop</div>
-        <h2 id="workflow-title">From signal to safer next step.</h2>
-        <p>The concept is intentionally assistive: gather shift context, connect the signals, simplify the next task, then ask the nurse to verify and act.</p>
+        <div class="eyebrow">One shift view</div>
+        <h2 id="shift-title">Patients and priorities, without the hunt.</h2>
+        <p>PooryaAI condenses the shift into a short, reviewable view. The nurse verifies the context and decides what happens next.</p>
       </div>
       <div class="steps">
-        <article class="step"><span class="step-num">01</span><div><h3>Orient</h3><p>See current priorities, medication windows, observations, and recent changes in one concise shift view.</p></div></article>
-        <article class="step"><span class="step-num">02</span><div><h3>Recognize</h3><p>Receive a concise prompt when a disease pattern, safety risk, or unfinished follow-up may need attention.</p></div></article>
-        <article class="step"><span class="step-num">03</span><div><h3>Communicate</h3><p>Prepare a clear patient explanation, a thoughtful family conversation, or a structured handoff.</p></div></article>
-        <article class="step"><span class="step-num">04</span><div><h3>Verify and act</h3><p>Review the evidence, orders, local protocol, and clinical judgment before any real-world action.</p></div></article>
-      </div>
-    </section>
-
-    <section class="scope" id="pilot-scope" aria-labelledby="scope-title">
-      <div class="scope-inner">
-        <div class="scope-head">
-          <div class="eyebrow">Product scope</div>
-          <h2 id="scope-title">What goes in, what comes out, and who decides.</h2>
-          <p>The first product direction is a focused nursing assistant—not a general chatbot and not an autonomous clinical system.</p>
-        </div>
-        <div class="scope-grid">
-          <article class="scope-card"><span>01 / CONTEXT</span><h3>Information the nurse can verify</h3><p>The assistant works from the care context available to the nurse rather than guessing what is not known.</p><ul><li>Current observations and symptoms</li><li>Recent changes and relevant history</li><li>Medication timing and follow-up tasks</li><li>Local workflow or protocol context</li></ul></article>
-          <article class="scope-card"><span>02 / ASSISTANCE</span><h3>Focused, explainable output</h3><p>Every output is meant to reduce searching and organizing—not create another stream of noise.</p><ul><li>Prioritized shift view</li><li>Possible disease-pattern prompts</li><li>Medication and follow-up reminders</li><li>Patient, family, and handoff drafts</li></ul></article>
-          <article class="scope-card"><span>03 / HUMAN GATE</span><h3>The nurse reviews the next step</h3><p>Clinical action remains with the care team, supported by visible reasoning and clear uncertainty.</p><ul><li>Check the underlying cues</li><li>Compare with orders and protocol</li><li>Escalate through the clinical team</li><li>Edit communication before use</li></ul></article>
-        </div>
-        <div class="pilot-strip"><h3>Who the first pilot is for</h3><p><strong>Working nurses and clinical teams</strong> who can help identify high-friction shift moments, review the assistant’s prompts, define unsafe behavior, and decide whether the tool genuinely saves attention without weakening clinical judgment.</p></div>
+        <article class="step"><span class="step-num">01</span><div><h3>Assigned patient list for each nurse</h3><p>See every assigned patient with current status, recent changes, medication windows, and watch items.</p></div></article>
+        <article class="step"><span class="step-num">02</span><div><h3>Prioritized task queue</h3><p>Order care tasks by urgency, timing, clinical risk, and unfinished follow-up—then let the nurse adjust the order.</p></div></article>
+        <article class="step"><span class="step-num">03</span><div><h3>Focused safety and disease cues</h3><p>Surface a concise prompt when a possible disease pattern, conflict, or missed check needs review.</p></div></article>
+        <article class="step"><span class="step-num">04</span><div><h3>Communication and handoff</h3><p>Prepare a plain-language explanation or structured handoff that the nurse can check and refine.</p></div></article>
       </div>
     </section>
 
     <section class="validation" id="validation" aria-labelledby="validation-title">
       <div class="validation-inner">
         <div class="eyebrow">Safety before scale</div>
-        <h2 id="validation-title">A product like this has to earn trust before it enters care.</h2>
+        <h2 id="validation-title">Helpful prompts. Clear limits. A nurse in control.</h2>
         <div class="validation-grid">
-          <article class="validation-item"><span>01 / CO-DESIGN</span><h3>Built with nursing input</h3><p>The planned workflow starts with real nursing scenarios and review by people who understand bedside work.</p></article>
-          <article class="validation-item"><span>02 / EVALUATE</span><h3>Test the risky edges</h3><p>Planned evaluations will examine missed cues, unsafe suggestions, ambiguity, and unnecessary alerting—not just answer quality.</p></article>
-          <article class="validation-item"><span>03 / PILOT</span><h3>Prove usefulness carefully</h3><p>Any clinical pilot should begin with narrow scope, human oversight, clear escalation paths, and measurable safety criteria.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="boundary" id="boundaries" aria-labelledby="boundary-title">
-      <div class="boundary-inner">
-        <h2 id="boundary-title">Clear boundaries from day one.</h2>
-        <div class="boundary-list">
-          <article class="boundary-item"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 4.5 6v5.2c0 4.6 3.2 8.2 7.5 9.8 4.3-1.6 7.5-5.2 7.5-9.8V6L12 3Z" stroke="currentColor" stroke-width="1.8"/><path d="M9 12.2 11 14l4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div><h3>Support, not replacement</h3><p>PooryaAI would support disease-pattern recognition, not make an independent final diagnosis, prescribe, administer medication, or replace clinical judgment and local protocols.</p></div></article>
-          <article class="boundary-item"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h14v16H5z" stroke="currentColor" stroke-width="1.8"/><path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><div><h3>Prompts that can be checked</h3><p>Important suggestions should show the cue behind them so the nurse can verify the reasoning instead of trusting a hidden conclusion.</p></div></article>
-          <article class="boundary-item"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v10H5z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="16" r="1.3" fill="currentColor"/></svg><div><h3>Privacy is a product requirement</h3><p>No real patient information should enter the current concept preview. A clinical version would require appropriate privacy, security, and governance controls.</p></div></article>
+          <article class="validation-item"><span>01 / HUMAN GATE</span><h3>Support, not replacement</h3><p>PooryaAI does not independently diagnose, prescribe, administer medication, or replace clinical judgment and local protocols.</p></article>
+          <article class="validation-item"><span>02 / EXPLAIN</span><h3>Reasoning that can be checked</h3><p>Important prompts should show the cues behind them, the uncertainty, and what needs verification.</p></article>
+          <article class="validation-item"><span>03 / VALIDATE</span><h3>Test before clinical use</h3><p>Co-design, privacy controls, narrow pilots, and evaluation of missed or unsafe cues come before patient-care use.</p></article>
         </div>
       </div>
     </section>
@@ -560,21 +510,19 @@
       <div class="faq-head">
         <div class="eyebrow">Questions, answered</div>
         <h2 id="faq-title">What PooryaAI is—and is not.</h2>
-        <p>A clear product promise includes the limits, the current stage, and the work still required.</p>
+        <p>The essentials about scope, safety, and current availability.</p>
       </div>
       <div class="faq-list">
-        <details open><summary>Who is PooryaAI for?</summary><p>It is being designed for working nurses and the clinical teams around them. It is not a study guide, exam-preparation tool, or virtual patient exercise for students.</p></details>
-        <details><summary>Will it diagnose disease?</summary><p>No. The intended role is to connect observations and surface possible disease patterns or deterioration cues for review. A nurse and the wider clinical team remain responsible for assessment, escalation, diagnosis, and treatment decisions.</p></details>
-        <details><summary>Will it administer or prescribe medication?</summary><p>No. It may help organize medication windows, verification checks, and follow-up cues, but it will not prescribe, change an order, or administer medication.</p></details>
-        <details><summary>Does it replace hospital systems or local protocols?</summary><p>No. The product direction is to work alongside established clinical workflows. Any future integration with clinical systems would need to be evaluated, authorized, and implemented with the healthcare organization; no such integration is claimed today.</p></details>
-        <details><summary>How will patient information be protected?</summary><p>The current page is a concept preview and should not receive patient information. Before any clinical use, the product would need appropriate privacy, security, access control, data-governance, and regulatory review for the setting where it is used.</p></details>
-        <details><summary>Can I use PooryaAI in patient care today?</summary><p>No. PooryaAI is in development and is not available for clinical use. The next step is co-design and carefully scoped evaluation with working nurses and clinical teams.</p></details>
+        <details open><summary>Who is PooryaAI for?</summary><p>Working nurses and the clinical teams around them—not nursing students or exam preparation.</p></details>
+        <details><summary>Does it diagnose or administer medication?</summary><p>No. It surfaces patterns, checks, and timing cues for review. Assessment, diagnosis, prescribing, administration, and escalation stay with the clinical team.</p></details>
+        <details><summary>How will patient information be protected?</summary><p>The current concept should not receive real patient information. Clinical use would require appropriate privacy, security, governance, and regulatory review.</p></details>
+        <details><summary>Can I use PooryaAI in patient care today?</summary><p>No. It is in development. The next step is co-design and carefully scoped evaluation with working nurses and clinical teams.</p></details>
       </div>
     </section>
 
     <section class="final" id="pilot" aria-labelledby="pilot-title">
       <div class="final-card">
-        <div><h2 id="pilot-title">The safer shift starts with the next question.</h2><p>PooryaAI is still in development. The first step is shaping a focused pilot with working nurses and clinical teams around the moments that matter most on a real shift.</p><a class="button" href="#pilot-scope">Read the pilot scope</a></div>
+        <div><h2 id="pilot-title">The safer shift starts with the next question.</h2><p>PooryaAI is in development. The next step is a focused pilot shaped with working nurses and clinical teams.</p><a class="button" href="#shift">See the shift view</a></div>
         <div class="final-note"><span>PRODUCT PRINCIPLE</span><strong>AI should make nursing attention sharper—not nursing judgment smaller.</strong></div>
       </div>
       <footer><span>© 2026 PooryaAI</span><span>In development · Not for patient care</span></footer>
