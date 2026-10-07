@@ -220,39 +220,34 @@
     .hero { grid-template-columns: minmax(0, .84fr) minmax(500px, 1.16fr); gap: 56px; min-height: 760px; }
     .hero-copy { position: relative; z-index: 2; }
     .hero-copy::after { content: "+"; position: absolute; left: -56px; bottom: 18px; color: color-mix(in srgb, var(--teal) 22%, transparent); font-family: var(--sans); font-size: 70px; font-weight: 300; line-height: 1; }
-    .care-stage { position: relative; min-height: 580px; border: 1px solid color-mix(in srgb, var(--teal) 28%, var(--line)); border-radius: 42% 8% 32% 10% / 12% 18% 10% 17%; background: var(--surface); box-shadow: var(--shadow); isolation: isolate; }
-    .care-stage::before { content: ""; position: absolute; inset: 18px; z-index: -1; border-radius: inherit; background: var(--surface-2); }
-    .care-stage::after { content: ""; position: absolute; width: 92px; height: 92px; right: -24px; top: 126px; z-index: -2; border: 20px solid color-mix(in srgb, var(--coral) 22%, transparent); border-radius: 50%; }
-    .stage-label { position: absolute; left: 34px; top: 27px; z-index: 3; display: flex; align-items: center; gap: 9px; padding: 8px 12px; border-radius: 999px; background: var(--surface); box-shadow: 0 8px 24px rgba(16,46,38,.09); color: var(--teal-dark); font-family: var(--mono); font-size: 10px; }
-    .stage-label::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 4px color-mix(in srgb, var(--teal) 14%, transparent); }
-    .ward-scene { position: absolute; inset: 42px 14px 12px 14px; width: calc(100% - 28px); height: calc(100% - 54px); overflow: visible; }
-    .ward-scene .line { fill: none; stroke: var(--ink); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
-    .ward-scene .soft-line { fill: none; stroke: color-mix(in srgb, var(--ink) 46%, transparent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
-    .ward-scene .scrub { fill: var(--teal); }
-    .ward-scene .scrub-dark { fill: var(--teal-dark); }
-    .ward-scene .paper { fill: var(--surface); }
-    .ward-scene .mint-fill { fill: var(--mint); }
-    .ward-scene .coral-fill { fill: var(--coral-soft); }
-    .ward-scene .amber-fill { fill: var(--amber-soft); }
-    .ward-scene .floor { fill: color-mix(in srgb, var(--mint) 60%, var(--surface)); }
-    .ward-scene .monitor { fill: var(--ink); }
-    .ward-scene .monitor-screen { fill: color-mix(in srgb, var(--teal) 24%, #09211b); }
-    .ward-scene .wave { fill: none; stroke: var(--mint-strong); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
-    .ward-scene .fine { fill: none; stroke: color-mix(in srgb, var(--ink) 24%, transparent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    .ward-scene .glass { fill: color-mix(in srgb, var(--mint) 55%, var(--surface)); stroke: color-mix(in srgb, var(--teal) 38%, var(--line)); stroke-width: 2; }
-    .ward-scene .glow { fill: color-mix(in srgb, var(--mint-strong) 32%, var(--surface)); }
-    .ward-scene .wheel { fill: var(--ink); }
-    .ward-scene text { fill: var(--muted); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; }
-    .float-card { position: absolute; z-index: 4; min-width: 174px; padding: 12px 14px; border: 1px solid var(--line); background: var(--surface); box-shadow: 0 13px 28px rgba(16,46,38,.12); }
-    .float-card small { display: flex; align-items: center; gap: 7px; margin-bottom: 5px; color: var(--muted); font-family: var(--mono); font-size: 8px; letter-spacing: .04em; }
-    .float-card small svg { width: 13px; height: 13px; color: var(--teal); }
-    .float-card strong { display: block; font-size: 12px; line-height: 1.35; }
-    .float-card.med { right: -12px; top: 76px; border-left: 4px solid var(--coral); }
-    .float-card.id { left: -22px; bottom: 116px; border-left: 4px solid var(--teal); }
-    .float-card.family { right: 12px; bottom: 28px; border-left: 4px solid var(--amber); }
-    .stage-caption { position: absolute; z-index: 3; left: 36px; bottom: 31px; max-width: 174px; }
-    .stage-caption span { display: block; margin-bottom: 5px; color: var(--teal-dark); font-family: var(--mono); font-size: 9px; }
-    .stage-caption strong { font-family: var(--serif); font-size: 17px; line-height: 1.25; }
+    /* Shift-view product mockup */
+    .care-stage { position: relative; padding: 26px; border: 1px solid color-mix(in srgb, var(--teal) 26%, var(--line)); border-radius: 30px; background: var(--surface); box-shadow: var(--shadow); }
+    .care-stage::before { content: ""; position: absolute; inset: 12px; z-index: -1; border-radius: 22px; background: var(--surface-2); }
+    .shift-ui { position: relative; display: grid; }
+    .shift-ui-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 4px 4px 18px; border-bottom: 1px solid var(--line); }
+    .shift-ui-kicker { display: block; margin-bottom: 6px; color: var(--teal-dark); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+    .shift-ui-head strong { font-family: var(--serif); font-size: 24px; letter-spacing: -.02em; }
+    .shift-ui-count { padding: 7px 12px; border-radius: 999px; background: var(--mint); color: var(--teal-dark); font-family: var(--mono); font-size: 11px; white-space: nowrap; }
+    .shift-ui-patients { list-style: none; margin: 0; padding: 4px 0; display: grid; }
+    .shift-ui-patients li { display: grid; grid-template-columns: 46px 1fr auto; gap: 14px; align-items: center; padding: 13px 4px; border-bottom: 1px solid var(--line); }
+    .bed { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 14px; background: var(--surface-2); color: var(--teal-dark); font-family: var(--mono); font-size: 13px; font-weight: 600; }
+    .shift-ui-patients strong { display: block; font-size: 15px; }
+    .shift-ui-patients li > div span { color: var(--muted); font-size: 12.5px; }
+    .pill { display: inline-flex; align-items: center; gap: 7px; padding: 6px 10px; border-radius: 999px; font-family: var(--mono); font-size: 10px; white-space: nowrap; }
+    .pill i { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+    .pill.ok { background: var(--mint); color: var(--teal-dark); }
+    .pill.due { background: var(--coral-soft); color: var(--coral); }
+    .pill.watch { background: var(--amber-soft); color: var(--amber); }
+    .shift-ui-tasks { padding: 18px 4px 4px; }
+    .shift-ui-tasks ol { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 8px; }
+    .shift-ui-tasks li { display: grid; grid-template-columns: 52px 1fr auto; gap: 12px; align-items: center; padding: 11px 12px; border: 1px solid var(--line); border-radius: 12px; }
+    .shift-ui-tasks li.now { border-color: color-mix(in srgb, var(--coral) 55%, var(--line)); background: var(--coral-soft); }
+    .shift-ui-tasks time { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .shift-ui-tasks p { margin: 0; font-size: 13.5px; font-weight: 600; }
+    .shift-ui-tasks em { font-style: normal; font-family: var(--mono); font-size: 9.5px; padding: 4px 8px; border-radius: 999px; background: var(--surface-2); color: var(--muted); white-space: nowrap; }
+    .shift-ui-tasks li.now em { background: color-mix(in srgb, var(--coral) 18%, var(--surface)); color: var(--coral); }
+    .shift-ui-cue { margin-top: 16px; padding: 16px 18px; border-left: 3px solid var(--teal); border-radius: 0 12px 12px 0; background: var(--mint); }
+    .shift-ui-cue p { margin: 8px 0 0; font-size: 13.5px; line-height: 1.5; }
     .proof-item { position: relative; min-height: 40px; padding-left: 46px; }
     .proof-item::before { position: absolute; left: 0; width: 31px; height: 31px; display: grid; place-items: center; border-radius: 9px; background: color-mix(in srgb, var(--mint-strong) 22%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--mint-strong) 35%, transparent); }
     .proof-item:nth-child(2)::before { content: "Pt"; font-family: var(--mono); font-size: 9px; }
@@ -288,26 +283,17 @@
     .boundary::after { content: ""; position: absolute; left: 8%; bottom: -24px; width: 84px; height: 84px; border: 18px solid color-mix(in srgb, var(--coral) 18%, transparent); border-radius: 50%; }
     .final-card { border-radius: 8px 42px 8px 42px; }
     @media (prefers-color-scheme: dark) {
-      .float-card, .stage-label, .steps { box-shadow: 0 15px 30px rgba(0,0,0,.25); }
+      .steps { box-shadow: 0 15px 30px rgba(0,0,0,.25); }
     }
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; }
-      .care-stage { width: min(650px, 96%); min-height: 590px; margin: 0 auto; }
+      .care-stage { width: min(560px, 96%); margin: 0 auto; }
       .hero-copy::after { display: none; }
     }
     @media (max-width: 620px) {
       body { background-size: 24px 24px; }
-      .care-stage { width: 100%; min-height: 500px; border-radius: 26px 8px 26px 8px; }
-      .care-stage::before { inset: 10px; }
-      .care-stage::after { display: none; }
-      .ward-scene { inset: 52px 4px 60px; width: calc(100% - 8px); height: calc(100% - 112px); }
-      .stage-label { left: 18px; top: 18px; }
-      .float-card { min-width: 142px; max-width: 158px; padding: 9px 10px; }
-      .float-card.med { right: -5px; top: 74px; }
-      .float-card.id { left: -5px; bottom: 103px; }
-      .float-card.family { right: 7px; bottom: 17px; }
-      .stage-caption { left: 18px; bottom: 23px; max-width: 130px; }
-      .stage-caption strong { font-size: 14px; }
+      .care-stage { width: 100%; padding: 18px; border-radius: 22px; }
+      .care-stage::before { inset: 8px; border-radius: 16px; }
       .proof-item { padding-left: 44px; }
       .capability-grid { gap: 12px; }
       .capability, .capability:nth-child(even), .capability.featured { padding: 24px; border-right: 1px solid var(--line); background: var(--surface); }
@@ -383,9 +369,6 @@
       .hero-copy > *:nth-child(5) { animation-delay: .32s; }
       .care-stage { animation: rise .8s cubic-bezier(.2,.7,.2,1) .15s both; }
       .status::before { animation: pulse-dot 2.6s ease-in-out infinite; }
-      .float-card.med { animation: bob 7s ease-in-out 1s infinite; }
-      .float-card.id { animation: bob 8s ease-in-out .4s infinite; }
-      .float-card.family { animation: bob 7.5s ease-in-out 1.6s infinite; }
     }
     /* Shift example strip */
     .example { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
@@ -472,71 +455,45 @@
           <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Built for validation before use</li>
         </ul>
       </div>
-      <div class="care-stage" aria-label="Illustration of a calm hospital bedside supported by PooryaAI safety cues">
-        <div class="stage-label">MORNING ROUND</div>
-        <svg class="ward-scene" viewBox="0 0 620 520" role="img" aria-labelledby="ward-title ward-desc">
-          <title id="ward-title">A calm, organized hospital bedside</title>
-          <desc id="ward-desc">A stylized nursing environment with an adjustable bed, vital-sign monitor, IV stand, medication cart, clinical tablet, and safety cues.</desc>
-          <path class="floor" d="M38 368c109-42 223-45 320-16 75 23 143 22 222-4v139H38Z"/>
-          <rect class="glass" x="64" y="70" width="260" height="138" rx="24"/>
-          <path class="fine" d="M194 70v138M64 139h260"/>
-          <circle class="glow" cx="112" cy="111" r="20"/>
-          <path class="fine" d="M84 179c35-29 68-26 102 0 37-43 78-45 119 0"/>
-          <path class="soft-line" d="M48 236h524"/>
-          <path class="soft-line" d="M85 225v22m73-22v22m73-22v22m73-22v22m73-22v22"/>
-          <g transform="translate(374 78)">
-            <rect class="monitor" x="0" y="0" width="150" height="108" rx="13"/>
-            <rect class="monitor-screen" x="13" y="14" width="124" height="67" rx="6"/>
-            <path class="wave" d="M23 50h17l8-15 11 30 11-21 9 6h44"/>
-            <circle cx="26" cy="93" r="4" fill="var(--mint-strong)"/>
-            <circle cx="42" cy="93" r="4" fill="var(--amber)"/>
-            <path class="line" d="M75 108v28m-36 0h72"/>
-          </g>
-          <g transform="translate(117 252)">
-            <path class="paper" d="M34 42h307c24 0 42 19 42 42v43H34Z"/>
-            <path class="mint-fill" d="M58 56h112c16 0 29 13 29 29v29H58Z"/>
-            <path class="scrub" d="M178 75h171c12 0 22 10 22 22v17H178Z" opacity=".82"/>
-            <path class="line" d="M14 129h389M35 129v85m348-85v85M74 154h267M58 214h34m233 0h34"/>
-            <path class="soft-line" d="M67 73h76m60 21h131"/>
-            <circle class="wheel" cx="75" cy="221" r="8"/>
-            <circle class="wheel" cx="342" cy="221" r="8"/>
-          </g>
-          <g transform="translate(486 226)">
-            <path class="line" d="M58 0v193M32 193h52M34 0h50M41 0v45c0 10 7 18 17 18s18-8 18-18V0"/>
-            <path class="amber-fill" d="M34 10h49l-7 48c-2 15-9 23-18 23s-17-8-19-23Z"/>
-            <path class="soft-line" d="M58 81v42"/>
-            <circle cx="58" cy="134" r="6" fill="var(--coral)"/>
-          </g>
-          <g transform="translate(45 294)">
-            <rect class="paper" x="0" y="0" width="94" height="106" rx="12"/>
-            <path class="line" d="M0 35h94M18 55h58M18 73h42M18 91h51"/>
-            <circle class="coral-fill" cx="73" cy="18" r="8"/>
-            <path class="line" d="M17 106v42m60-42v42M8 148h19m41 0h19"/>
-            <circle class="wheel" cx="17" cy="153" r="5"/>
-            <circle class="wheel" cx="77" cy="153" r="5"/>
-          </g>
-          <g transform="translate(62 248)">
-            <path class="scrub-dark" d="M0 0h68v38H0Z"/>
-            <path class="wave" d="M10 20h12l5-9 8 18 7-14 6 5h10" stroke-width="3"/>
-          </g>
-          <g transform="translate(225 197)">
-            <rect class="paper" x="0" y="0" width="95" height="56" rx="10" stroke="var(--teal)" stroke-width="3"/>
-            <path class="soft-line" d="M20 17h55M20 29h42M20 41h32"/>
-            <circle cx="79" cy="41" r="8" fill="var(--mint)" stroke="var(--teal)" stroke-width="2"/>
-            <path class="wave" d="m75 41 3 3 6-7" stroke-width="2.5"/>
-          </g>
-          <g transform="translate(398 292)">
-            <rect class="glass" x="0" y="0" width="75" height="91" rx="10"/>
-            <rect class="monitor-screen" x="9" y="10" width="57" height="48" rx="5"/>
-            <path class="wave" d="M17 35h10l5-9 7 17 6-13 5 5h9" stroke-width="3"/>
-            <path class="line" d="M37 91v42m-27 0h54"/>
-          </g>
-          <text x="82" y="263">CARE ZONE</text>
-        </svg>
-        <div class="float-card med"><small><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 3v4m8-4v4M5 9h14M6 5h12a2 2 0 0 1 2 2v13H4V7a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>MEDICATION WINDOW · 09:00</small><strong>Five-rights check is due</strong></div>
-        <div class="float-card id"><small><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 4h10v16H7zM9.5 8h5M9.5 12h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>DISEASE RECOGNITION</small><strong>New pattern needs review</strong></div>
-        <div class="float-card family"><small><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>COMMUNICATION</small><strong>Plain-language update ready</strong></div>
-        <div class="stage-caption"><span>CARE ENVIRONMENT</span><strong>One calmer view of the next safe step.</strong></div>
+      <div class="care-stage" aria-label="PooryaAI shift view: assigned patients and prioritized tasks">
+        <div class="shift-ui">
+          <div class="shift-ui-head">
+            <div>
+              <span class="shift-ui-kicker">Morning shift</span>
+              <strong>Your patients today</strong>
+            </div>
+            <span class="shift-ui-count">6 patients</span>
+          </div>
+          <ul class="shift-ui-patients">
+            <li>
+              <span class="bed">12</span>
+              <div><strong>Bed 12</strong><span>Stable &middot; checked 07:40</span></div>
+              <span class="pill ok"><i></i>Stable</span>
+            </li>
+            <li>
+              <span class="bed">14</span>
+              <div><strong>Bed 14</strong><span>Medication window &middot; 08:30</span></div>
+              <span class="pill due"><i></i>Due 08:30</span>
+            </li>
+            <li>
+              <span class="bed">15</span>
+              <div><strong>Bed 15</strong><span>Observation overdue</span></div>
+              <span class="pill watch"><i></i>Watch</span>
+            </li>
+          </ul>
+          <div class="shift-ui-tasks">
+            <span class="shift-ui-kicker">Prioritized tasks</span>
+            <ol>
+              <li class="now"><time>08:30</time><p>Medication check &middot; Bed 14</p><em>Due now</em></li>
+              <li><time>09:00</time><p>Observation round &middot; Bed 15</p></li>
+              <li><time>09:15</time><p>Review flagged pattern &middot; Bed 15</p><em>Review</em></li>
+            </ol>
+          </div>
+          <div class="shift-ui-cue">
+            <span class="shift-ui-kicker">Safety cue</span>
+            <p>Changing pattern in the Bed 15 chart &mdash; flagged for your review.</p>
+          </div>
+        </div>
       </div>
     </section>
 
