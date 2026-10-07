@@ -371,6 +371,33 @@
       .site-nav a:not(.nav-cta):not(.brand)::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -5px; height: 2px; border-radius: 2px; background: var(--teal); transition: right .28s ease; }
       .site-nav a:not(.nav-cta):not(.brand):hover::after { right: 0; }
     }
+    /* Ambient ideas from the concept file: aurora, word shine, conic border, spotlight */
+    .aurora { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+    .aurora i { position: absolute; width: 44vmax; height: 44vmax; border-radius: 50%; filter: blur(90px); }
+    .aurora i:nth-child(1) { background: color-mix(in srgb, var(--teal) 30%, transparent); top: -16vmax; left: -10vmax; opacity: .5; animation: drift 24s ease-in-out infinite alternate; }
+    .aurora i:nth-child(2) { background: color-mix(in srgb, var(--mint-strong) 32%, transparent); bottom: -22vmax; right: -12vmax; opacity: .45; animation: drift 30s ease-in-out infinite alternate; }
+    .aurora i:nth-child(3) { background: color-mix(in srgb, var(--coral) 20%, transparent); top: 32%; left: 38%; width: 26vmax; height: 26vmax; opacity: .35; animation: drift 36s ease-in-out infinite alternate; }
+    @keyframes drift { to { transform: translate(6vmax, 8vmax) scale(1.12); } }
+    main { position: relative; z-index: 1; }
+    .js h1 span { display: inline-block; opacity: 0; filter: blur(10px); transform: translateY(24px); animation: word-in .8s cubic-bezier(.2,.7,.2,1) forwards; animation-delay: calc(.35s + var(--i) * .09s); }
+    .js h1 span.g { background: linear-gradient(100deg, var(--teal), var(--mint-strong), var(--teal)); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: word-in .8s cubic-bezier(.2,.7,.2,1) forwards, shine 6s linear infinite; animation-delay: calc(.35s + var(--i) * .09s), 1.4s; }
+    .hero-copy > h1 { animation: none; }
+    @keyframes word-in { to { opacity: 1; filter: blur(0); transform: none; } }
+    @keyframes shine { to { background-position: -250% 0; } }
+    .button { background: linear-gradient(120deg, var(--teal), var(--teal-dark) 75%); background-size: 180% 100%; }
+    .button:hover { background-position: 100% 0; }
+    .capability::before { content: ""; position: absolute; inset: 0; z-index: 1; background: radial-gradient(380px circle at var(--x, 50%) var(--y, 0%), color-mix(in srgb, var(--teal) 18%, transparent), transparent 62%); opacity: 0; transition: opacity .35s ease; pointer-events: none; }
+    .capability:hover::before { opacity: 1; }
+    @property --ang { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+    .care-stage::after { content: ""; position: absolute; inset: -1px; border-radius: 31px; padding: 1.5px; background: conic-gradient(from var(--ang, 0deg), transparent 55%, color-mix(in srgb, var(--teal) 60%, transparent), color-mix(in srgb, var(--mint-strong) 60%, transparent), transparent 82%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; animation: rot 7s linear infinite; pointer-events: none; }
+    @keyframes rot { to { --ang: 360deg; } }
+    .faq-list summary::after { display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid var(--line); border-radius: 50%; top: 18px; transition: transform .35s cubic-bezier(.2,.7,.2,1), background-color .3s ease; }
+    .faq-list details[open] summary::after { content: "+"; transform: rotate(135deg); background: var(--mint); }
+    .final-card { background: radial-gradient(ellipse at 50% -10%, rgba(255,255,255,.22), transparent 55%), var(--teal); }
+    @media (prefers-reduced-motion: reduce) {
+      .js h1 span { animation: none; opacity: 1; filter: none; transform: none; }
+      .aurora i { animation: none; }
+    }
     ::selection { background: var(--teal); color: #fff; }
     section[id] { scroll-margin-top: 92px; }
     @media (prefers-reduced-motion: no-preference) {
@@ -445,6 +472,7 @@
   </style>
 </head>
 <body id="top">
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
   <nav class="site-nav" aria-label="Primary navigation">
     <a class="brand" href="#top">PooryaAI</a>
     <a href="#focus">Focus</a>
@@ -458,7 +486,7 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
         <div class="eyebrow">AI assistant for working nurses</div>
-        <h1 id="hero-title">A clearer shift. Safer care.</h1>
+        <h1 id="hero-title"><span style="--i:0">A</span> <span style="--i:1">clearer</span> <span style="--i:2">shift.</span> <span style="--i:3">Safer</span> <span class="g" style="--i:4">care.</span></h1>
         <p>PooryaAI brings each nurse’s patients, priorities, safety cues, and communication support into one clear shift view.</p>
         <div class="actions">
           <a class="button" href="#contact">Talk to us about a pilot</a>
@@ -685,6 +713,14 @@
     var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 10); };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+    // Cursor spotlight on capability cards
+    document.querySelectorAll('.capability').forEach(function (c) {
+      c.addEventListener('pointermove', function (e) {
+        var r = c.getBoundingClientRect();
+        c.style.setProperty('--x', (e.clientX - r.left) + 'px');
+        c.style.setProperty('--y', (e.clientY - r.top) + 'px');
+      });
+    });
   })();
   </script>
 </body>
