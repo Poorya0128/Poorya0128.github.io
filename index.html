@@ -15,7 +15,7 @@
   <meta name="twitter:title" content="PooryaAi — Safer nursing, clearer care" />
   <meta name="twitter:description" content="PooryaAi is a personal AI agent being built for working nurses — shift prioritization, medication timing, disease-pattern cues, and patient communication support. Free pilot, no hospital IT integration needed." />
   <link rel="canonical" href="https://pooryaai.me/" />
-  <script>document.documentElement.className += ' js';</script>
+  <script>document.documentElement.className += ' js';</script>padding: 0; overflow: hidden; background: #0b1412;
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23087f71'/%3E%3Cpath d='M32 16v32M16 32h32' stroke='white' stroke-width='9' stroke-linecap='round'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -477,8 +477,8 @@
       .footer-base { flex-direction: column; align-items: flex-start; }
     }
     /* 3D hero stage */
-    .care-stage.stage-3d { padding: 0; overflow: hidden; background: #0b1412; border-color: rgba(45,212,184,.25);
-      min-height: 620px; display: grid; place-items: center; perspective: 1200px; transform: none; }
+    .care-stage.stage-3d { padding: 32px 0; overflow: hidden; background: #0b1412; border-color: rgba(45,212,184,.25);
+      min-height: 640px; display: grid; place-items: center; perspective: 1200px; transform: none; }
     .care-stage.stage-3d::before, .care-stage.stage-3d::after { display: none; }
     .stage-3d-bg { position: absolute; inset: 0; }
     .stage-3d-bg canvas { display: block; width: 100%; height: 100%; }
@@ -766,7 +766,7 @@
       var scene = new THREE.Scene();
       scene.fog = new THREE.FogExp2(0x0b1412, 0.05);
       var camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
-      camera.position.set(5.6, 3.4, 7.8);
+      var lookAt = new THREE.Vector3(0.2, 1.0, 0); var basePos = new THREE.Vector3(5.6, 3.4, 7.8); camera.position.copy(basePos);
 
       scene.add(new THREE.HemisphereLight(0xbfe8dd, 0x0b1a16, 0.55));
       var dir = new THREE.DirectionalLight(0xffffff, 0.65); dir.position.set(5, 8, 4); scene.add(dir);
@@ -852,7 +852,7 @@
       function size() {
         var w = container.clientWidth || 1, h = container.clientHeight || 1;
         renderer.setSize(w, h, false);
-        camera.aspect = w / h; camera.updateProjectionMatrix();
+        camera.aspect = w / h; camera.updateProjectionMatrix(); var s = (w / h) > 1.15 ? 0.62 : 1; basePos.set(lookAt.x + (5.6 - lookAt.x) * s, lookAt.y + (3.4 - lookAt.y) * s, lookAt.z + (7.8 - lookAt.z) * s); camera.position.copy(basePos);
       }
       size();
       window.addEventListener('resize', size);
@@ -867,7 +867,7 @@
         }, { passive: true });
         stage.addEventListener('pointerleave', function () { trx = 0; try_ = 0; mx = 0; my = 0; });
       }
-      var lookAt = new THREE.Vector3(0.2, 1.0, 0);
+      
       var clock = new THREE.Clock();
       function frame() {
         var t = clock.getElapsedTime();
@@ -877,8 +877,8 @@
           if (tiltEl) tiltEl.style.transform = 'rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)';
           pts.rotation.y = t * 0.02;
           teal.intensity = 1.3 + Math.sin(t * 2.2) * 0.25;
-          camera.position.x = 5.6 + Math.sin(t * 0.25) * 0.25 + mx * 0.6;
-          camera.position.y = 3.4 + Math.cos(t * 0.2) * 0.12 + my * 0.35;
+          camera.position.x = basePos.x + Math.sin(t * 0.25) * 0.25 + mx * 0.6;
+          camera.position.y = basePos.y + Math.cos(t * 0.2) * 0.12 + my * 0.35; camera.position.z = basePos.z;
           camera.lookAt(lookAt);
           requestAnimationFrame(frame);
         } else {
