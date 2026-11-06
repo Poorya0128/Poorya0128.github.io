@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>PooryaAi — A clearer shift. Safer care.</title>
+  <title>PooryaAi: A clearer shift. Safer care.</title>
   <meta name="description" content="PooryaAi is an AI assistant for working nurses. It brings each nurse's patients, priorities, safety cues and communication support into one clear shift view." />
   <meta name="theme-color" content="#050d0c" />
-  <meta property="og:title" content="PooryaAi — A clearer shift. Safer care." />
-  <meta property="og:description" content="An AI assistant for working nurses — fewer errors, clearer priorities, better communication." />
+  <meta property="og:title" content="PooryaAi: A clearer shift. Safer care." />
+  <meta property="og:description" content="An AI assistant for working nurses: fewer errors, clearer priorities, better communication." />
   <meta property="og:type" content="website" />
   <link rel="canonical" href="https://pooryaai.me/" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23050d0c'/%3E%3Ccircle cx='32' cy='32' r='12' fill='%237cf5d4'/%3E%3C/svg%3E" />
-  <script type="module" crossorigin src="./assets/index-D2q6TpHh.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-3wOZ8_31.css">
+  <script type="module" crossorigin src="./assets/index-Dl6ZrE9x.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-Cxap9MzO.css">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -68,9 +68,8 @@
           <div class="hero__actions" data-reveal>
             <a class="btn" href="mailto:contact@pooryaai.me?subject=PooryaAi%20pilot%20interest" data-magnetic>
               <span>Talk to us about a pilot</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
-            <a class="btn btn--ghost" href="#shift" data-magnetic>See the shift view</a>
+            <a class="btn btn--ghost" href="#shift" data-magnetic>See the shift view<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
           <ul class="chips" data-reveal>
             <li>Nurse remains in control</li>
@@ -87,30 +86,29 @@
               <div>
                 <p class="mono muted">Morning shift</p>
                 <p class="shift-card__title">Your patients today</p>
+                <p class="mono muted shift-card__live"><span class="live-dot"></span>Demo · updated <span id="liveUpdated">--:--</span></p>
               </div>
               <span class="pill">6 patients</span>
             </div>
             <ul class="beds layer" style="--z:24px">
-              <li class="bed bed--stable"><span class="bed__no">12</span><span class="bed__txt"><b>Bed 12</b><small>Stable · checked 07:40</small></span><span class="tag">Stable</span></li>
-              <li class="bed bed--due"><span class="bed__no">14</span><span class="bed__txt"><b>Bed 14</b><small>Medication window</small></span><span class="tag">Due 08:30</span></li>
-              <li class="bed bed--watch"><span class="bed__no">15</span><span class="bed__txt"><b>Bed 15</b><small>Observation overdue</small></span><span class="tag">Watch</span></li>
+              <li class="bed bed--stable" data-bed="12"><span class="bed__no">12</span><span class="bed__txt"><b>Bed 12</b><small>Stable · checked 07:40</small></span><span class="tag">Stable</span></li>
+              <li class="bed bed--due" data-bed="14"><span class="bed__no">14</span><span class="bed__txt"><b>Bed 14</b><small>Medication window</small></span><span class="tag">Due 08:30</span></li>
+              <li class="bed bed--watch" data-bed="15"><span class="bed__no">15</span><span class="bed__txt"><b>Bed 15</b><small>Observation overdue</small></span><span class="tag">Watch</span></li>
             </ul>
             <div class="tasks layer" style="--z:18px">
               <p class="mono muted">Prioritized tasks</p>
               <ol>
-                <li><span class="mono">08:30</span>Medication check · Bed 14<em class="due">Due now</em></li>
-                <li><span class="mono">09:00</span>Observation round · Bed 15</li>
-                <li><span class="mono">09:15</span>Review flagged pattern · Bed 15<em class="review">Review</em></li>
+                <li data-task="0"><span class="mono">08:30</span><span class="task__txt">Medication check · Bed 14</span><em class="due">Due now</em></li>
+                <li data-task="1"><span class="mono">09:00</span><span class="task__txt">Observation round · Bed 15</span></li>
+                <li data-task="2"><span class="mono">09:15</span><span class="task__txt">Review flagged pattern · Bed 15</span><em class="review">Review</em></li>
               </ol>
             </div>
-            <div class="cue layer" style="--z:34px">
+            <div class="cue layer" id="cueBox" style="--z:34px">
               <span class="cue__dot"></span>
-              <p><b>Safety cue</b> Changing pattern in the Bed 15 chart — flagged for your review.</p>
+              <p><b>Safety cue</b> <span id="cueText">Changing pattern in the Bed 15 chart, flagged for your review.</span></p>
             </div>
             <p class="shift-card__foot mono layer" style="--z:10px"><span>Human in the loop</span><span>Illustrative · not patient data</span></p>
           </div>
-          <span class="float-badge float-badge--a mono"><i></i>Nurse decides</span>
-          <span class="float-badge float-badge--b mono"><i></i>Reasoning shown</span>
         </div>
       </div>
       <a href="#problem" class="scroll-hint mono" aria-label="Scroll down"><span class="scroll-hint__bar"></span>Scroll</a>
@@ -130,7 +128,7 @@
         <p class="kicker" data-reveal>The reality of a shift</p>
         <h2 class="problem__title" data-words>The plan you made at handoff is obsolete by 9&nbsp;AM.</h2>
         <div class="problem__body">
-          <p data-reveal>One nurse carries five or six patients at once — medications, vitals, wound care, family questions — all competing for the same hour. Interruptions arrive every few minutes.</p>
+          <p data-reveal>One nurse carries five or six patients at once: medications, vitals, wound care, family questions, all competing for the same hour. Interruptions arrive every few minutes.</p>
           <p data-reveal>A late or missed medication is a patient-safety event, and the fear of it follows you home. The problem was never a lack of dedication. <strong>It was a lack of clarity.</strong></p>
         </div>
       </div>
@@ -162,7 +160,7 @@
             <li class="moment">
               <span class="moment__time mono">09:15</span>
               <h3>Notice the change</h3>
-              <p>A note flags a changing pattern for her review — she decides what happens next.</p>
+              <p>A note flags a changing pattern for her review. She decides what happens next.</p>
             </li>
           </ol>
         </div>
@@ -179,32 +177,28 @@
         </div>
         <div class="cards">
           <article class="card" data-tilt data-reveal>
-            <div class="card__glow"></div>
             <div class="card__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="9"/><circle cx="24" cy="24" r="18" class="o"/><path d="M6 24h6M36 24h6M24 6v6M24 36v6"/></svg></div>
             <p class="card__no mono">01 / Recognize</p>
             <h3>Recognize patterns sooner</h3>
-            <p>Connect symptoms, observations, history and recent changes to surface patterns worth reviewing and escalating — for the nurse to assess, never an autonomous diagnosis.</p>
+            <p>Connect symptoms, observations, history and recent changes to surface patterns worth reviewing and escalating, for the nurse to assess. Never an autonomous diagnosis.</p>
           </article>
           <article class="card" data-tilt data-reveal>
-            <div class="card__glow"></div>
             <div class="card__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5l16 6v11c0 10-7 18-16 21C15 40 8 32 8 22V11z"/><path d="M17 24l5 5 9-10" class="o"/></svg></div>
             <p class="card__no mono">02 / Prevent</p>
             <h3>Catch preventable errors</h3>
             <p>Flag conflicting information, missed checks and unfinished follow-up so the issue is reviewed before it reaches the patient.</p>
           </article>
           <article class="card" data-tilt data-reveal>
-            <div class="card__glow"></div>
             <div class="card__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="26" r="16"/><path d="M24 16v10l7 5" class="o"/><path d="M19 5h10"/></svg></div>
             <p class="card__no mono">03 / Time</p>
             <h3>Keep medication care visible</h3>
             <p>Surface upcoming and overdue windows, verification steps and follow-up cues while administration decisions stay with the care team.</p>
           </article>
           <article class="card" data-tilt data-reveal>
-            <div class="card__glow"></div>
             <div class="card__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 10h24a4 4 0 014 4v12a4 4 0 01-4 4H18l-8 7v-7H8a4 4 0 01-4-4V14a4 4 0 014-4z"/><path d="M40 18h0a4 4 0 014 4v10a4 4 0 01-4 4h-2v6l-7-6h-7" class="o"/></svg></div>
             <p class="card__no mono">04 / Connect</p>
             <h3>Find a better way to say it</h3>
-            <p>Prepare clear, respectful explanations and questions for patients, families and handoffs — adapted to the moment, reviewed before use.</p>
+            <p>Prepare clear, respectful explanations and questions for patients, families and handoffs, adapted to the moment and reviewed before use.</p>
           </article>
         </div>
       </div>
@@ -222,13 +216,14 @@
           </div>
           <div class="stat" data-reveal>
             <p class="stat__n"><span data-count="5">0</span><small>min</small></p>
-            <p class="stat__t">typical interruption gap — context is lost between each one</p>
+            <p class="stat__t">typical interruption gap. Context is lost between each one</p>
           </div>
           <div class="stat stat--accent" data-reveal>
             <p class="stat__n"><span data-count="1">0</span><small>view</small></p>
-            <p class="stat__t">patients, tasks, cues and drafts — consolidated and reviewable</p>
+            <p class="stat__t">patients, tasks, cues and drafts, consolidated and reviewable</p>
           </div>
         </div>
+        <p class="mono muted stats__note">Illustrative figures for a typical morning shift, not measured data.</p>
       </div>
     </section>
 
@@ -267,8 +262,8 @@
           <h2 class="about__quote" data-split><span class="line">Built by a nurse,</span><span class="line"><em>for nurses.</em></span></h2>
         </div>
         <div class="about__body">
-          <p data-reveal><strong>Poorya Baghery — Founder.</strong> PooryaAi is built by a working nurse. We are looking for nurse advisors and pilot partners to help shape what comes next.</p>
-          <p data-reveal>The product direction stays assistive: gather shift context, connect the signals, simplify the next task — then ask the nurse to verify and act.</p>
+          <p data-reveal><strong>Poorya Baghery, Founder.</strong> PooryaAi is built by a working nurse. We are looking for nurse advisors and pilot partners to help shape what comes next.</p>
+          <p data-reveal>The product direction stays assistive: gather shift context, connect the signals, simplify the next task, then ask the nurse to verify and act.</p>
           <ol class="flow mono" data-reveal>
             <li>Gather</li><li>Connect</li><li>Simplify</li><li>Nurse verifies</li>
           </ol>
@@ -281,15 +276,15 @@
       <div class="wrap faq__grid">
         <div class="section-head">
           <p class="kicker" data-reveal>Questions, answered</p>
-          <h2 data-split><span class="line">What PooryaAi is</span><span class="line"><em>— and isn't.</em></span></h2>
+          <h2 data-split><span class="line">What PooryaAi is</span><span class="line"><em>(and isn't).</em></span></h2>
         </div>
         <div class="faq__list">
-          <details data-reveal><summary>Who is PooryaAi for?<i></i></summary><div class="faq__a"><p>Working nurses and their clinical teams — not students or exam preparation.</p></div></details>
+          <details data-reveal><summary>Who is PooryaAi for?<i></i></summary><div class="faq__a"><p>Working nurses and their clinical teams. Not students or exam preparation.</p></div></details>
           <details data-reveal><summary>Does it diagnose or give medication?<i></i></summary><div class="faq__a"><p>No. It flags patterns and timing cues for a nurse to review. See <a href="#safety">Safety and clear boundaries</a> above.</p></div></details>
           <details data-reveal><summary>How is patient information handled?<i></i></summary><div class="faq__a"><p>Do not send us patient information. The pilot is a workflow study without identifiable patient information.</p></div></details>
-          <details data-reveal><summary>Can I use it in patient care today?<i></i></summary><div class="faq__a"><p>Not yet — the pilot is a workflow study without identifiable patient information, not clinical use.</p></div></details>
+          <details data-reveal><summary>Can I use it in patient care today?<i></i></summary><div class="faq__a"><p>Not yet. The pilot is a workflow study without identifiable patient information, not clinical use.</p></div></details>
           <details data-reveal><summary>Does the pilot cost anything?<i></i></summary><div class="faq__a"><p>No. The pilot is free for participating nurses.</p></div></details>
-          <details data-reveal><summary>Does PooryaAi connect to my hospital's systems?<i></i></summary><div class="faq__a"><p>No. PooryaAi is a personal agent for the nurse — it doesn't integrate with hospital systems, so there's nothing for IT to install.</p></div></details>
+          <details data-reveal><summary>Does PooryaAi connect to my hospital's systems?<i></i></summary><div class="faq__a"><p>No. PooryaAi is a personal agent for the nurse. It doesn't integrate with hospital systems, so there's nothing for IT to install.</p></div></details>
           <details data-reveal><summary>When will PooryaAi be available?<i></i></summary><div class="faq__a"><p>We're in private pilot now, building it with working nurses. Join the pilot for early access.</p></div></details>
         </div>
       </div>
@@ -304,7 +299,6 @@
         <div class="cta__actions" data-reveal>
           <a class="btn btn--xl" href="mailto:contact@pooryaai.me?subject=PooryaAi%20pilot%20interest" data-magnetic>
             <span>Talk to us about a pilot</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <a class="cta__mail mono" href="mailto:contact@pooryaai.me">contact@pooryaai.me</a>
         </div>
@@ -316,7 +310,7 @@
     <div class="wrap footer__grid">
       <div>
         <a href="#top" class="wordmark">Poorya<span>Ai</span></a>
-        <p class="muted">An AI assistant for working nurses — fewer errors, clearer priorities, better communication.</p>
+        <p class="muted">An AI assistant for working nurses: fewer errors, clearer priorities, better communication.</p>
       </div>
       <nav aria-label="Footer">
         <p class="mono muted">Explore</p>
@@ -336,5 +330,18 @@
     <p class="footer__giant" aria-hidden="true">PooryaAi</p>
   </footer>
 
+  <script>
+    /* Loader fallback: if the bundle never runs, show the page anyway. */
+    setTimeout(function () {
+      var loader = document.getElementById('loader');
+      if (!loader) return;
+      loader.remove();
+      document.body.classList.remove('is-loading');
+      document.querySelectorAll('[data-reveal]').forEach(function (el) { el.style.opacity = '1'; el.style.transform = 'none'; });
+      document.querySelectorAll('.line__in').forEach(function (el) { el.style.transform = 'none'; });
+      document.querySelectorAll('.problem__title .w').forEach(function (el) { el.style.opacity = '1'; });
+      document.querySelectorAll('[data-count]').forEach(function (el) { el.textContent = el.dataset.count; });
+    }, 6000);
+  </script>
 </body>
 </html>
